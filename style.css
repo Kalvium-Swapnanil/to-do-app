@@ -47,21 +47,22 @@ img {
   font-weight: 500;
 }
 
-#todolist {
+#todoList {
   width: 500px;
   margin: 20px auto;
   list-style-type: none;
 }
 
-#todolist li {
+#todoList li {
   margin-bottom: 20px;
   padding: 20px;
   box-shadow: -1px -1px 5px 0px gray;
   border-bottom: 5px solid #7055d3;
 }
 
-#todolist li a {
+#todoList li a {
   float: right;
   font-size: 16px;
   cursor: pointer;
+  margin-right: 10px;
 }
