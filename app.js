@@ -1,33 +1,37 @@
-var listOfActivities = [];
-var input = document.getElementById("input");
-var todolist = document.getElementById("todolist");
-document.getElementById("button").onclick = click;
-function click() {
-  listOfActivities.push(input.value);
-  console.log(listOfActivities);
-  input.value = "";
-  showList();
+var activityList = [];
+var inputField = document.getElementById("inputField");
+var todoListElement = document.getElementById("todoList");
+document.getElementById("addButton").onclick = handleAddButtonClick;
+
+function handleAddButtonClick() {
+  activityList.push(inputField.value);
+  console.log(activityList);
+  inputField.value = "";
+  displayList();
 }
-function showList() {
-  todolist.innerHTML = " ";
-  listOfActivities.forEach(function (n, i) {
-    todolist.innerHTML +=
+
+function displayList() {
+  todoListElement.innerHTML = "";
+  activityList.forEach(function(activity, index) {
+    todoListElement.innerHTML +=
       "<li>" +
-      n +
-      "<a onclick='editItem(" +
-      i +
+      activity +
+      "<a onclick='editActivity(" +
+      index +
       ")'>Edit</a>" +
-      "<a onclick='deleteItem(" +
-      i +
-      ")'>&times | </a></li>";
+      "<a onclick='deleteActivity(" +
+      index +
+      ")'>&times;</a></li>";
   });
 }
-function deleteItem(i) {
-  listOfActivities.splice(i, 1);
-  showList();
+
+function deleteActivity(index) {
+  activityList.splice(index, 1);
+  displayList();
 }
-function editItem(i) {
+
+function editActivity(index) {
   var newValue = prompt("Please insert your new value");
-  listOfActivities.splice(i, 1, newValue);
-  showList();
+  activityList.splice(index, 1, newValue);
+  displayList();
 }
